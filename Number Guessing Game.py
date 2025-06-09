@@ -3,28 +3,31 @@ import random
 
 def requestNumber():
     while True:
-        number = input('Introduce un numero del 1 al 10: ')
+        number = input('Enter a number between 1-99: ')
         if number.isdigit():
-            return int(number)
+            if int(number) > 0 and int(number) < 100: 
+                return int(number)
+            else:
+                print('Please enter a number between 1-99')
         else:
-            print('Por favor introduce un numero valido')
+            print('Please enter a valid number')
 
 def game():
-    intentos = 0
-    key = random.randint(1,10)
-    adivinado = False
+    Attempts  = 0
+    key = random.randint(1,100)
+    guessed = False
 
-    while not adivinado:
+    while not guessed:
         number = requestNumber()
-        intentos+=1
+        Attempts +=1
         if number > key:
-            print('El numero secreto es menor')
+            print('The secret number is lower')
         elif number < key:
-            print('El numero secreto es mayor')
+            print('The secret number is higher')
         else:
-            print(f'Felicidades, el numero es {key}')
-            print(f'Intentos = {intentos}')
-            adivinado = True
+            print(f'Congratulations! The secret number was {key}')
+            print(f'Total attempts: {Attempts}')
+            guessed = True
 
 game()
 
