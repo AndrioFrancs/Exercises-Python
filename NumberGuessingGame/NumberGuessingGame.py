@@ -13,22 +13,21 @@ def requestNumber():
             print('Please enter a valid number')
 
 def game():
-    Attempts  = 0
+    attempts  = 0
     key = random.randint(1,100)
     guessed = False
 
     while not guessed:
         number = requestNumber()
-        Attempts +=1
+        attempts +=1
         if number > key:
             print('The secret number is lower')
         elif number < key:
             print('The secret number is higher')
         else:
             print(f'Congratulations! The secret number was {key}')
-            print(f'Total attempts: {Attempts}')
+            print(f'Total attempts: {attempts}')
             guessed = True
-
 game()
 
     
